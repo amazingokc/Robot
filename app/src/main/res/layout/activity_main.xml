@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8a94fd"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/smart_robot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:textColor="#ffffff"
+            android:text="Smart Robot"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            >
+        </TextView>
+
+        <Button
+            android:id="@+id/botton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/selector"
+            android:layout_marginRight="16dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        >
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            android:background="#00000000"
+            android:hint="Say"
+            />
+
+        <TextView
+            android:id="@+id/send"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="发送"
+            android:textSize="18sp"
+            android:background="@drawable/send"
+            android:textColor="#ffffff"
+            android:layout_gravity="bottom"
+            />
+    </LinearLayout>
+    <!--83行为ListView与底部的距离,85行为快速滑动，86行为滚动条的模式，87自动滚动到最底部,88属性之后你做好的列表就会显示你列表的最下面-->
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:divider="@null"
+        android:fastScrollEnabled="true"
+        android:transcriptMode="alwaysScroll"
+        android:stackFromBottom="true"
+        >
+    </ListView><!--添加滚动条弹起输入法时，对话几次会出现屏幕往左边挤压，什么情况-->
+
+</RelativeLayout>
