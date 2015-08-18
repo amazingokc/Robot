@@ -12,6 +12,16 @@ public class ChatEntity implements Serializable {
     private Type type;
     private Date date;
     private String msg;
+    private String trainnum;
+    private String start;
+    private String terminal;
+    private String starttime;
+    private String endtime;
+    private String detailurl;
+//    private String trainnum;
+
+
+
 
     public enum Type {
         INCOMING, OUTCOMING
@@ -35,7 +45,12 @@ public class ChatEntity implements Serializable {
         this.msg = msg;
     }
 
-
+    public void setStart(String start) {
+        this.start = start;
+    }
+    public String getStart() {
+        return start;
+    }
 
     public Date getDate() {
         return date;

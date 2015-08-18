@@ -13,9 +13,9 @@ import java.net.URLEncoder;
 public class HttpUtil {
     public static int TXT = 100000;  //文本格式
     public static int TRAIN = 305000; //列车
-    public static int FLIGHT = 306000; //列车
+    public static int NEWS = 302000; //新闻
     public static String API_HOST = "http://www.tuling123.com/openapi/api";
-    public static String API_KEY = "d09bf6a12b86f07bbddc8984dfb408bc";
+    public static String API_KEY = "7248434e46be11612ea15a97088a1ab7";
     static ByteArrayOutputStream baos;
     static InputStream is;
 

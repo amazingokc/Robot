@@ -63,7 +63,6 @@ public class MainActivity extends Activity {
 
     }
 
-
     private void initView() {
         listView1 = (ListView) findViewById(R.id.listView1);
         textView = (TextView) findViewById(R.id.send);
@@ -172,10 +171,14 @@ public class MainActivity extends Activity {
                 viewHodel.mDate.setText(new SimpleDateFormat(
                         "yyyy-MM-dd HH:mm:ss").format(chatEntity.getDate()));
                 viewHodel.mMsg.setText(chatEntity.getMsg());
+
+                //holder2.mMsg.setText(chatEntity.getStart());
+
             } else if(getItemViewType(position) == 1){
                 holder2.mDate.setText(new SimpleDateFormat(
                         "yyyy-MM-dd HH:mm:ss").format(chatEntity.getDate()));
                 holder2.mMsg.setText(chatEntity.getMsg());
+               // holder2.mMsg.setText(chatEntity.getStart());
             }
 
             return convertView;
