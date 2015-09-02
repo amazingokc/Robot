@@ -63,7 +63,7 @@ public class ChatListMgr {
 
                         chatEntity.setDate(new Date());
                         chatEntity.setType(ChatEntity.Type.INCOMING);
-                        list.add(chatEntity);
+                        list.add(chatEntity);//将数据保存到list
                         handler.sendEmptyMessage(1);
                     }
                     /*else if (code == HttpUtil.NEWS) {  //新闻

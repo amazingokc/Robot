@@ -37,11 +37,11 @@
                 android:src="@drawable/robot" />
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/TulingName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
-                android:text="小学生" />
+                 />
         </LinearLayout>
         <!--58行是TextView与输入框的距离-->
         <TextView

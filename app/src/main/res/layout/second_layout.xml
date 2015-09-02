@@ -62,7 +62,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5）机器人调教，你的风格自然由你做主(这东西怎么调教？)"
+        android:text="5）机器人调教，你的风格自然由你做主"
         android:textSize="12dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="7dp"
@@ -70,11 +70,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6）有些问题不知道为何导致闪退，郁闷"
+        android:text="6）可查询列车"
         android:textSize="12dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="7dp"
         />
+
 
     <TextView
         android:layout_width="wrap_content"

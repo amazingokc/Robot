@@ -3,9 +3,11 @@ package com.amazingrobot.robot;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends Activity {
+
 
     private ChatListMgr articleListMgr;
     private ListView listView1;
@@ -51,18 +54,23 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Button button = (Button) findViewById(R.id.botton);
         button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
+                startActivity(intent);//            跳转页面
             }
         });
+        View view = View.inflate(this, R.layout.item_tuling,null);
+        TextView mTulingName = (TextView) view.findViewById(R.id.TulingName);
+        mTulingName.setText("sss");
+//        Log.d("okc", )
         initView();
-        articleListMgr = new ChatListMgr(MainActivity.this, handler, list);
-        adapter = new ChatAdapter(list, MainActivity.this);
+        articleListMgr = new ChatListMgr(MainActivity.this, handler, list);  //向uil get数据
+        adapter = new ChatAdapter(list, MainActivity.this);//将经过解析的数据显示出来
 
     }
-
+//
     private void initView() {
         listView1 = (ListView) findViewById(R.id.listView1);
         textView = (TextView) findViewById(R.id.send);
@@ -72,15 +80,18 @@ public class MainActivity extends Activity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View paramView) {
-                sendStr = editText.getText().toString();
+                sendStr = editText.getText().toString();//要发送的内容
                 if (!"".equals(sendStr)) {
+                    //先将要发送的数据存到ChatEntity，在存到list
                     list.add(new ChatEntity(ChatEntity.Type.OUTCOMING, new Date(), sendStr));
-                    articleListMgr.httpGet(sendStr);
+                    articleListMgr.httpGet(sendStr);//向uil get数据
                 }
             }
         });
 
     }
+
+
 
     class ChatAdapter extends BaseAdapter {
         private ArrayList<ChatEntity> chat_list;
@@ -130,11 +141,14 @@ public class MainActivity extends Activity {
             return 2;
         }
 
+        /*
+        * 显示listView
+        */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
             if (convertView == null) {
-                if (getItemViewType(position) == 0) {
+                if (getItemViewType(position) == 0) {   //自己
                     viewHodel = new ViewHodel();
                     convertView = inflater.inflate(R.layout.item_wo, parent,
                             false);
@@ -143,10 +157,17 @@ public class MainActivity extends Activity {
                     viewHodel.mMsg = (TextView) convertView
                             .findViewById(R.id.me_msg);
                     convertView.setTag(viewHodel);
-                } else {
+                } else {                                 //图灵
                     holder2 = new ViewHolder2();
                     convertView = inflater.inflate(R.layout.item_tuling,
                             parent, false);
+
+                    TextView textname = (TextView) convertView.findViewById(R.id.TulingName);
+                    SharedPreferences pref = getSharedPreferences("data",
+                            MODE_PRIVATE);
+                    String name = pref.getString("name", "");   //取出自定义的名字
+                    textname.setText(name);
+                    Log.d("MainActivity", "name is " + name);
 
                     holder2.mDate = (TextView) convertView
                             .findViewById(R.id.me_title_time);
@@ -172,13 +193,11 @@ public class MainActivity extends Activity {
                         "yyyy-MM-dd HH:mm:ss").format(chatEntity.getDate()));
                 viewHodel.mMsg.setText(chatEntity.getMsg());
 
-                //holder2.mMsg.setText(chatEntity.getStart());
-
             } else if(getItemViewType(position) == 1){
                 holder2.mDate.setText(new SimpleDateFormat(
                         "yyyy-MM-dd HH:mm:ss").format(chatEntity.getDate()));
                 holder2.mMsg.setText(chatEntity.getMsg());
-               // holder2.mMsg.setText(chatEntity.getStart());
+
             }
 
             return convertView;

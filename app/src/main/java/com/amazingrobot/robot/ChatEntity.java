@@ -14,7 +14,7 @@ public class ChatEntity implements Serializable {
     private String msg;
     private String trainnum;
     private String start;
-    private String terminal;
+    private String name;
     private String starttime;
     private String endtime;
     private String detailurl;
@@ -44,6 +44,14 @@ public class ChatEntity implements Serializable {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public  String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public void setStart(String start) {
         this.start = start;

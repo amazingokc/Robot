@@ -10,19 +10,24 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:icon="@drawable/icon"
+        android:icon="@drawable/normal"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.amazingrobot.robot.MainActivity"
+            android:name="com.amazingrobot.robot.setNameActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.amazingrobot.robot.SecondActivity" >
         </activity>
+
+        <activity android:name="com.amazingrobot.robot.MainActivity" >
+        </activity>
+
     </application>
 
 </manifest>
