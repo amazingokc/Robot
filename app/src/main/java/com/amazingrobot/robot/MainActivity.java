@@ -152,11 +152,11 @@ public class MainActivity extends Activity {
                     viewHodel = new ViewHodel();
                     convertView = inflater.inflate(R.layout.item_wo, parent,
                             false);
-                    viewHodel.mDate = (TextView) convertView
+                    viewHodel.mDate = (TextView) convertView    //将控件保存到viewHodel
                             .findViewById(R.id.me_title_time);
                     viewHodel.mMsg = (TextView) convertView
                             .findViewById(R.id.me_msg);
-                    convertView.setTag(viewHodel);
+                    convertView.setTag(viewHodel);       //将convertView与viewHodel关联起来
                 } else {                                 //图灵
                     holder2 = new ViewHolder2();
                     convertView = inflater.inflate(R.layout.item_tuling,
@@ -179,7 +179,7 @@ public class MainActivity extends Activity {
 
             } else {
                 if (getItemViewType(position) == 0) {
-                    viewHodel = (ViewHodel) convertView.getTag();
+                    viewHodel = (ViewHodel) convertView.getTag();   //读取viewHodel保存的控件，省时间
                 } else if(getItemViewType(position) == 1){
                     holder2 = (ViewHolder2) convertView.getTag();
                 }
@@ -202,7 +202,7 @@ public class MainActivity extends Activity {
 
             return convertView;
         }
-
+        //避免重复初始化控件
         class ViewHodel {
             TextView mDate;
             TextView mMsg;
